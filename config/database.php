@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'cst-323.cknx30qxg2cd.us-east-2.rds.amazonaws.com'),
+            'host' => env('DB_HOST', '34.68.247.65'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'cst-323'),
-            'username' => env('DB_USERNAME', 'NoahStudent'),
-            'password' => env('DB_PASSWORD', 'bscp-gcu-noah'),
+            'database' => env('DB_DATABASE', 'activity323'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'root'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
