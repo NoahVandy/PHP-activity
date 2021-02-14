@@ -47,7 +47,18 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
-        ]
+        ],
+        "post-install-cmd": [
+			"Illuminate\\Foundation\\ComposerScripts::postInstall",
+			"mkdir -p bootstrap/cache",
+			"chmod -R 755 app bootstrap storage",
+			"mkdir -p storage",
+			"mkdir -p storage/app",
+			"mkdir -p storage/framework/cache",
+			"mkdir -p storage/framework/sessions",
+			"mkdir -p storage/framework/views",
+			"mkdir -p storage/logs"
+	]
     },
     "config": {
         "preferred-install": "dist",
