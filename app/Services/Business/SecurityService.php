@@ -5,6 +5,7 @@ use App\Models\UserModel;
 use Illuminate\Support\Facades\Log; 
 use\PDO;
 use App\Services\Data\SecurityDAO; 
+use App\Services\Utility\MyLogger2;
 
 class SecurityService
 {
@@ -18,6 +19,8 @@ class SecurityService
         $username = config("database.connections.mysql.username");
         $password = config("database.connections.mysql.password");
         $dbname = config("database.connections.mysql.database");
+
+        MyLogger2::info("Enter SecurityService.login()");
         
         // create connection
         $db = new PDO("mysql:host=$servername;
@@ -34,7 +37,7 @@ class SecurityService
         $db = null;
         
         // return the finder results
-        Log::info("Exit Securty Service.login()");
+        MyLogger2::info("Exit Securty Service.login() with " . $flag);
         return $flag;
     }
     

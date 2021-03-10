@@ -28,10 +28,7 @@ class Login5Controller extends Controller
             $this->validateForm($request);
             $username = $request->input("username");
             $password = $request->input("password");
-            MyLogger2::info("Paramaters: ", array(
-                "username" => $username,
-                "password" => $password
-            ));
+            MyLogger2::info("Enter Login5Controller.index()");
             
             $user = new UserModel(-1, $username, $password);
             
@@ -40,14 +37,14 @@ class Login5Controller extends Controller
             
             if($status)
             {
-                MyLogger2::info("Exit Login4controller.index() with login passed");
+                MyLogger2::info("Exit Login5Controller.index() with login passed");
                 $data = ['model' => $user];
                 return view('loginPassed')->with($data);
             }
             else
             {
-                MyLogger2::info("Exit Login4controller.index() with login failed");
-                return view('loginFailed');
+                MyLogger2::info("Exit Login5Controller.index() with login failed");
+                return view('login5');
             }
         }
         catch(ValidationException $el)
