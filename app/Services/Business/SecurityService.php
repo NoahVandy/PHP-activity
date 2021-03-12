@@ -23,7 +23,10 @@ class SecurityService
         MyLogger2::info("Enter SecurityService.login()");
         
         // create connection
-        $db = new PDO('mysql:dbname=activity323;host=34.68.247.65', $username, $password);
+        $db = new PDO("mysql:host=$servername;
+                        port=$port;
+                        dbname=$dbname", 
+                        $username, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         // create a Security Service DAO with this connection and try to find the password in the user 
