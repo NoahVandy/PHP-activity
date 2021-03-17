@@ -29,9 +29,6 @@ class Login5Controller extends Controller
             $username = $request->input("username");
             $password = $request->input("password");
             MyLogger2::info("Enter Login5Controller.index()");
-            // $logger = new \Monolog\Logger('MyApp'); 
-            MyLogger2::info("Info test from monolog");
-
             
             $user = new UserModel(-1, $username, $password);
             
