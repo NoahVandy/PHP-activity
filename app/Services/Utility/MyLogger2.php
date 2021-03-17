@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Log;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Formatter\LineFormatter;
-use Monolog\Handler\LogglyHandler;
 
 class MyLogger2 implements ILogger
 {
@@ -24,7 +23,7 @@ class MyLogger2 implements ILogger
             self::$logger = new Logger('MyApp');
             $stream = new StreamHandler('php://stdout', Logger::DEBUG);
             $stream->setFormatter(new LineFormatter("%datetime% : %level_name% : %message% %context%\n", "g:iA n/j/Y"));
-            self::$logger->pushHandler(new LogglyHandler('cd4e128f-3c5f-437e-b267-6ee6dabdc11f/tag/monolog', Logger::DEBUG));
+            self::$logger->pushHandler($stream);
         }
         
         return self::$logger;
